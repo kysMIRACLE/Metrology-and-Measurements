@@ -1,0 +1,231 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+
+\title{Homework5}
+\author{}
+\date{}
+\maketitle
+
+\section*{task1}
+
+\begin{itemize}
+    \item Mass of sensor, $m = 5 \times 10^{-2}$ kg
+    \item Surface area, $A = 10^{-3}$ m$^2$
+    \item Specific heat, $c = 0.2$ J kg$^{-1}$ \textdegree C$^{-1}$
+    \item Heat transfer coefficient for air, $h_{\text{air}} = 0.2$ W m$^{-2}$ \textdegree C$^{-1}$
+    \item Heat transfer coefficient for water, $h_{\text{water}} = 1.0$ W m$^{-2}$ \textdegree C$^{-1}$
+    \item Temperature of air, $T_{\text{air}} = 20 \textdegree C$
+    \item Temperature of boiling water, $T_{\text{water}} = 100 \textdegree C$
+\end{itemize}
+
+\section*{1. Calculation of Time Constants ($\tau$)}
+
+The time constant for a first-order system is calculated using the formula:
+
+\[
+\tau = \frac{m c}{h A}
+\]
+
+For water:
+
+\[
+\tau_{\text{water}} = \frac{(5 \times 10^{-2}) \times 0.2}{1.0 \times 10^{-3}} = 10 \text{ s}
+\]
+
+For air:
+
+\[
+\tau_{\text{air}} = \frac{(5 \times 10^{-2}) \times 0.2}{0.2 \times 10^{-3}} = 50 \text{ s}
+\]
+
+\section*{2. System Response Formula}
+
+For a first-order system, the temperature response is given by:
+
+\[
+T(t) = T_{\text{final}} + (T_{\text{initial}} - T_{\text{final}}) e^{-t / \tau}
+\]
+
+\section*{3. Dynamic Error Calculation During Boiling Water Phase (0-60 s)}
+
+(a) At $t = 10$ s:
+
+\begin{align*}
+T(10) &= 100 + (20 - 100) e^{-10 / 10} \\
+      &= 100 - 80 e^{-1} \\
+      &= 100 - 80 \times 0.367 \\
+      &= 70.64 \textdegree C
+\end{align*}
+
+Dynamic error:
+
+\[
+\Delta T = 100 - 70.64 = 29.36 \textdegree C
+\]
+
+(b) At $t = 20$ s:
+
+\begin{align*}
+T(20) &= 100 + (20 - 100) e^{-20 / 10} \\
+      &= 100 - 80 e^{-2} \\
+      &= 100 - 80 \times 0.135 \\
+      &= 89.2 \textdegree C
+\end{align*}
+
+Dynamic error:
+
+\[
+\Delta T = 100 - 89.2 = 10.8 \textdegree C
+\]
+
+(c) At $t = 50$ s:
+
+\begin{align*}
+T(50) &= 100 + (20 - 100) e^{-50 / 10} \\
+      &= 100 - 80 e^{-5} \\
+      &= 100 - 80 \times 0.007 \\
+      &= 99.44 \textdegree C
+\end{align*}
+
+Dynamic error:
+
+\[
+\Delta T = 100 - 99.44 = 0.56 \textdegree C
+\]
+
+\section*{4. Dynamic Error Calculation During Air Phase (After 60 s)}
+
+(a) At $t = 120$ s (60 s in air):
+
+\begin{align*}
+T(120) &= 20 + (99.44 - 20) e^{-60 / 50} \\
+       &= 20 + 79.44 \times e^{-1.2} \\
+       &= 20 + 79.44 \times 0.301 \\
+       &= 43.9 \textdegree C
+\end{align*}
+
+Dynamic error:
+
+\[
+\Delta T = 20 - 43.9 = -23.9 \textdegree C
+\]
+
+(b) At $t = 300$ s (240 s in air):
+
+\begin{align*}
+T(300) &= 20 + (99.44 - 20) e^{-240 / 50} \\
+       &= 20 + 79.44 \times e^{-4.8} \\
+       &= 20 + 79.44 \times 0.008 \\
+       &= 20.64 \textdegree C
+\end{align*}
+
+Dynamic error:
+
+\[
+\Delta T = 20 - 20.64 = -0.64 \textdegree C
+\]
+
+\section*{5. Summary of Dynamic Errors}
+
+\begin{itemize}
+    \item At $t = 10$ s: $\Delta T = 29.36 \textdegree C$
+    \item At $t = 20$ s: $\Delta T = 10.8 \textdegree C$
+    \item At $t = 50$ s: $\Delta T = 0.56 \textdegree C$
+    \item At $t = 120$ s: $\Delta T = -23.9 \textdegree C$
+    \item At $t = 300$ s: $\Delta T = -0.64 \textdegree C$
+\end{itemize}
+
+
+
+\newpage
+
+\section*{Task 2}
+
+\subsection*{Given Data:}
+Mass, $m = 0.5$ kg\\
+Stiffness, $k = 2 \times 10^2$ N m$^{-1}$\\
+Damping constant, $c = 6.0$ N s m$^{-1}$
+
+\subsection*{(a) Calculating Parameters:}
+
+1. Steady-State Sensitivity:
+\[
+S = \frac{1}{k} = \frac{1}{2 \times 10^2} = 5 \times 10^{-3} \text{ m/N}
+\]
+
+2. Natural Frequency:
+\[
+\omega_n = \sqrt{\frac{k}{m}} = \sqrt{\frac{2 \times 10^2}{0.5}} = \sqrt{400} = 20 \text{ rad/s}
+\]
+
+3. Damping Ratio:
+\[
+\zeta = \frac{c}{2 \sqrt{km}} = \frac{6.0}{2 \times \sqrt{2 \times 10^2 \times 0.5}} = \frac{6.0}{20} = 0.3
+\]
+
+\subsection*{(b) Displacement for Steady Input Force:}
+
+\[
+X = S \times F = 5 \times 10^{-3} \times 2 = 0.01 \text{ m}
+\]
+
+\subsection*{(c) Displacement for Sudden Force Change:}
+
+The displacement response for a step input is:
+\[
+X(t) = \frac{F}{k} \left[1 - e^{-\zeta \omega_n t} \left(\cos(\omega_d t) + \frac{\zeta \omega_n}{\omega_d} \sin(\omega_d t)\right) \right]
+\]
+
+Where:
+\[
+\omega_d = \omega_n \sqrt{1 - \zeta^2} = 20 \times \sqrt{1 - 0.3^2} = 18.77 \text{ rad/s}
+\]
+
+Change in force $\Delta F = 3 - 2 = 1$ N
+
+\[
+X(t) = 0.005 \times \left[1 - e^{-6t} \left(\cos(18.77 t) + 0.3 \sin(18.77 t)\right)\right]
+\]
+
+
+
+
+
+
+\newpage
+\section*{Task 3}
+
+Given:
+\[
+F(t) = 50 \left( \sin(10t) + \frac{1}{3} \sin(30t) + \frac{1}{5} \sin(50t) \right)
+\]
+
+Transfer function:
+\[
+H(s) = \frac{\omega_n^2}{s^2 + 2 \zeta \omega_n s + \omega_n^2}, \quad \omega_n = 40 \text{ rad/s}, \zeta = 0.1
+\]
+
+Dynamic error for each frequency component:
+
+1. For $\sin(10t)$:
+\[
+|H(j10)| = \frac{40^2}{\sqrt{(40^2 - 10^2)^2 + (2 \times 0.1 \times 40 \times 10)^2}} = 0.974
+\]
+
+2. For $\sin(30t)$:
+\[
+|H(j30)| = \frac{40^2}{\sqrt{(40^2 - 30^2)^2 + (2 \times 0.1 \times 40 \times 30)^2}} = 0.556
+\]
+
+3. For $\sin(50t)$:
+\[
+|H(j50)| = \frac{40^2}{\sqrt{(40^2 - 50^2)^2 + (2 \times 0.1 \times 40 \times 50)^2}} = 0.395
+\]
+
+Dynamic error:
+\[
+E = 50 \left( (1 - 0.974) + \frac{1}{3}(1 - 0.556) + \frac{1}{5}(1 - 0.395) \right) \approx 7.82
+\]
+
+\end{document}
